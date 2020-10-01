@@ -1,0 +1,243 @@
+html,
+body,
+.App,
+#root {
+    height: 100%;
+}
+
+html {
+    font-size: 62.5%;
+    color: red;
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    font-family: $main-font;
+    font-weight: $normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    padding: 1rem 0;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: $bold;
+}
+
+h2 {
+    font-size: 3rem;
+    font-weight: $bold;
+    color: $darkOrange-color;
+}
+
+h3 {
+    font-size: 2.5rem;
+    font-weight: $semibold;
+}
+
+h4 {
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1.5rem;
+    color: $blue-color;
+}
+
+button {
+    padding: 1rem;
+    width: 100%;
+    font-size: 2rem;
+    border-radius: 25px;
+    max-width: 250px;
+    border: solid 3px $blue-color;
+    transition: 0.2s;
+    text-transform: uppercase;
+    &.main {
+        color: $blue-color;
+        background: $darkOrange-color;
+    }
+    &:hover {
+        transition: 0.2s;
+        letter-spacing: 2px;
+        &.main {
+            background: $main-color;
+            border-color: $main-color;
+            background: $main-color;
+            color: $blue-color;
+        }
+    }
+}
+
+button:active,
+button:focus {
+    outline: none;
+}
+
+.content-wrap {
+    padding: 2rem 3rem;
+    text-align: center;
+    h1 {
+        margin-top: 1.5rem;
+    }
+    .hero {
+        background-position: center top;
+        background-size: cover;
+        margin-top: 1.5rem;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+        min-height: 60vh;
+        max-height: 40vh;
+        background-image: url("/images/hero2.jpg");
+    }
+}
+
+.picker {
+    padding: 1rem 0;
+    .dates {
+        padding: 1rem 1rem;
+        text-align: center;
+    }
+    .button-container {
+        margin: 1rem 1rem;
+        text-align: center;
+        button {
+            margin: 0 1rem;
+        }
+    }
+}
+
+.load-more {
+    padding: 3rem 0;
+    width: 100%;
+    text-align: center;
+}
+
+.date-picker {
+    display: flex;
+    justify-content: center;
+    label {
+        font-size: 2rem;
+        padding-right: 1rem;
+    }
+    input {
+        padding: 0.8rem;
+        border: 2px solid $main-color;
+        border-radius: 10px;
+        width: 100%;
+        max-width: 220px;
+        &:focus {
+            outline: none;
+        }
+    }
+    .date {
+        padding: 0 1rem;
+        margin: 0 1rem;
+    }
+}
+
+hr {
+    width: 100%;
+    border: none;
+    height: 3px;
+    background: $main-color;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat( auto-fill, minmax(320px, 450px));
+    grid-gap: 1.5rem;
+    justify-content: center;
+}
+
+.modal-wrap {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-color: rgba(38, 70, 83, 0.6);
+    @include flex-middle;
+    .modal-inner {
+        position: relative;
+        padding: 2rem;
+        width: 100%;
+        max-width: 500px;
+        height: 100%;
+        max-height: 80vh;
+        top: 0;
+        left: 0;
+        background-color: white;
+    }
+}
+
+.card-wrap {
+    border: solid 3px $main-color;
+    border-radius: 2.5rem;
+    padding: 1rem;
+    max-width: 450px;
+    width: 100%;
+    box-sizing: border-box;
+    span {
+        color: $blue-color;
+    }
+    .card-header {
+        h4 {
+            color: $main-color;
+            font-weight: $bold;
+        }
+    }
+    .card-image {
+        img {
+            width: 100%;
+            max-width: 450px;
+        }
+    }
+    .card-details {
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        button {
+            text-align: center;
+            padding: 1rem;
+            font-size: 1.5rem;
+        }
+        span,
+        p {
+            padding: 0.8rem 0;
+            font-size: 2rem;
+            text-align: left;
+        }
+    }
+}
+
+@media only screen and (max-width:640px) {
+    .picker .button-container button {
+        margin-top: 10px;
+    }
+    .date-picker {
+        display: block;
+        .date {
+            margin-top: 10px;
+        }
+    }
+}
+
+@media only screen and (max-width:400px) {
+    .cards-container {
+        padding: 10px;
+    }
+    .card-wrap {
+        max-width: 100%;
+        margin: auto;
+    }
+}
